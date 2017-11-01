@@ -20,7 +20,7 @@ class WochuSpider(scrapy.Spider):
             item = WoChuItem() #创建数据存储实例
             item['prod_name'] = node.xpath('./div[@class="goods-name"]/text()').extract()[0]
             item['prod_link'] = 'http://www.wochu.cn' + node.xpath('./a/@href').extract()[0]
-            item['prod_price'] = node.xpath('./div[@class="price-cart"]/div[@class="price"]/text()')
+            #item['prod_price'] = node.xpath('./div[@class="price-cart"]/div[@class="price"]/text()')
             item['prod_price'] = node.xpath('.//div[@class="price"]/text()').extract()[0]
             item['prod_pic_link'] = node.xpath('./a/img/@src').extract_first()
             item['update_time'] = str(datetime.datetime.now())
